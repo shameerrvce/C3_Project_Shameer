@@ -29,7 +29,6 @@ public class Restaurant {
 
     public List<Item> getMenu() {
         return menu;
-        //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
     }
 
     private Item findItemByName(String itemName){
@@ -64,6 +63,20 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+
+    public int calculateOrderValue(List<String> items) {
+        int orderTotal = 0;
+
+        for(String eachItem : items) {
+            for(Item menuItem : menu) {
+                if(eachItem == menuItem.getName()) {
+                    orderTotal = orderTotal + menuItem.getPrice();
+                }
+            }
+        }
+
+        return orderTotal;
     }
 
 }
